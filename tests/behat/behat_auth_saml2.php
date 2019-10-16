@@ -203,13 +203,32 @@ class behat_auth_saml2 extends behat_base {
             ];
         }
 
-        if ($setting == 'Flagged response type') {
+        if ($setting == 'Groups Attribute') {
+            $setting = 'groupattr';
+        }
+
+        if ($setting == 'Restricted Groups') {
+            $setting = 'restricted_groups';
+        }
+
+        if ($setting == 'Allowed Groups') {
+            $setting = 'allowed_groups';
+        }
+
+        if ($setting == 'Account blocking response type') {
             $setting = 'flagresponsetype';
             $map = [
-                'do not respond (off)'     => saml2_settings::OPTION_FLAGGED_LOGIN_NONE,
                 'display custom message'   => saml2_settings::OPTION_FLAGGED_LOGIN_MESSAGE,
                 'redirect to external url' => saml2_settings::OPTION_FLAGGED_LOGIN_REDIRECT,
             ];
+        }
+
+        if ($setting == 'Redirect URL') {
+            $setting = 'flagredirecturl';
+        }
+
+        if ($setting == 'Response message') {
+            $setting = 'flagmessage';
         }
 
         $lowervalue = strtolower($value);
